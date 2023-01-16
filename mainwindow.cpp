@@ -23,12 +23,12 @@ void MainWindow::on_pushButton_clicked()
 
     slotIsRunning_ = true;
     QAudioFormat format;
-    //QAudioOutput* audioPlayer_ = new QAudioOutput(format, this);
+    QAudioOutput* audioPlayer_ = new QAudioOutput(format, this);
     qDebug() << "QAudioOutput created";
 
     sleep(1); // some work
 
-    //delete audioPlayer_;
+    delete audioPlayer_;
     qDebug() << "QAudioOutput deleted";
     slotIsRunning_ = false;
     QTimer::singleShot(std::rand()%50, this, &MainWindow::on_pushButton_clicked);
